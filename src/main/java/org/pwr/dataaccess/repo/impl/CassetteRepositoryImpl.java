@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 
 public class CassetteRepositoryImpl implements CassetteRepository {
 
-    private final List<Cassette> cassetteList = new ArrayList<>();
+    private List<Cassette> cassetteList = new ArrayList<>();
 
     @Override
     public List<Cassette> findByName(String cassetteName) {
@@ -32,5 +32,13 @@ public class CassetteRepositoryImpl implements CassetteRepository {
     public Cassette save(Cassette cassette) {
         cassetteList.add(cassette);
         return cassette;
+    }
+
+    public void setCassetteList(List<Cassette> cassetteList) {
+        this.cassetteList = cassetteList;
+    }
+
+    public List<Cassette> getCassetteList() {
+        return cassetteList;
     }
 }

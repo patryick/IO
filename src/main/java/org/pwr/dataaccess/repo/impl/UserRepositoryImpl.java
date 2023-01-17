@@ -28,4 +28,8 @@ public class UserRepositoryImpl implements UserRepository {
     public String toString() {
         return "UserRepositoryImpl{" + "userEntityList=" + userEntityList + '}';
     }
+
+    public List<User> getUserEntityList() {
+        return userEntityList;
+    }
 }

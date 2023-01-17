@@ -1,5 +1,7 @@
 package org.pwr.dataaccess.entity;
 
+import java.util.Objects;
+
 public class Cassette {
 
     private String name;
@@ -50,5 +52,20 @@ public class Cassette {
 
     public void setOwner(User owner) {
         this.owner = owner;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
+        Cassette cassette = (Cassette) o;
+        return isRented == cassette.isRented && delay == cassette.delay && Objects.equals(name, cassette.name) && Objects.equals(owner, cassette.owner);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, isRented, delay, owner);
     }
 }
